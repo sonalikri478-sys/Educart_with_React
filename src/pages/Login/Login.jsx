@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import "./Login.scss";
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
+import {useNavigate} from "react-router-dom"
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const handleLogin =(e) => {
+    e.preventDefault();
+
+    navigate("/home");
+  };
 
   return (
     <div className="login-page">
@@ -14,7 +21,7 @@ function Login() {
 
         <p>Login to continue your learning journey.</p>
 
-        <form>
+        <form onSubmit={handleLogin}>
 
           <div className="input-box">
             <FaEnvelope />
@@ -53,7 +60,7 @@ function Login() {
 
           </div>
 
-          <button className="login-btn">
+          <button className="login-btn" type="submit">
             Login
           </button>
 

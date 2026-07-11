@@ -1,79 +1,171 @@
-.hero{
-    display:flex;
-    justify-content: space-between;
+// Variables
+$primary-color: #2563eb;
+$primary-hover: #1d4ed8;
+$text-dark: #1f2937;
+$text-muted: #6b7280;
+$bg-gradient: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 10%;           // Fluid horizontal spacing adapts to monitor width
+  min-height: 75vh;            // Ensures the section fills the screen height perfectly
+  background: $bg-gradient;
+  box-sizing: border-box;
+  gap: 60px;                   // Sets a reliable buffer between text and images
+
+  // Left Content Side
+  .hero-content {
+    flex: 1;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .tag {
+      align-self: flex-start;  // Keeps the tag badge from expanding full-width
+      background: rgba($primary-color, 0.1);
+      color: $primary-color;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 3.5rem;       // Dynamic bold typography tracking
+      font-weight: 800;
+      line-height: 1.15;
+      color: $text-dark;
+      margin-bottom: 20px;
+
+      span {
+        color: $primary-color;
+      }
+    }
+
+    p {
+      font-size: 1.125rem;
+      color: $text-muted;
+      line-height: 1.6;
+      margin-bottom: 36px;
+    }
+  }
+
+  // Action Buttons Layout
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;       // Pushes down smoothly onto stats counters
+
+    .shop-btn,
+    .explore-btn {
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .shop-btn {
+      background: $primary-color;
+      color: #ffffff;
+      border: 1px solid $primary-color;
+      box-shadow: 0 4px 14px rgba($primary-color, 0.25);
+
+      &:hover {
+        background: $primary-hover;
+        border-color: $primary-hover;
+        transform: translateY(-2px);
+      }
+    }
+
+    .explore-btn {
+      background: #ffffff;
+      border: 2px solid #e5e7eb;
+      color: $text-dark;
+
+      &:hover {
+        border-color: $primary-color;
+        color: $primary-color;
+        background: rgba($primary-color, 0.02);
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  // Stats Counters Row
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 24px;
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      h3 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: $text-dark;
+        margin: 0;
+      }
+
+      p {
+        font-size: 0.875rem;
+        color: $text-muted;
+        margin: 0;
+      }
+    }
+  }
+
+  // Right Grid Image Container Layout
+  .hero-image {
+    flex: 1;
+    max-width: 550px;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding:70px 80px;
 
-    background:linear-gradient(135deg,#eef7ff,#ffffff);
-}
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: contain;
+      border-radius: 16px;
+      filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.06));
+    }
+  }
 
-.hero-content{
-    width:50%;
-}
+  // Responsive Breakpoint for Medium/Small Screen Layouts
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 5%;
+    gap: 48px;
 
-.tag{
-    display:inline-block;
-    background:#2563Eb;
-    color:white;
+    .hero-content {
+      max-width: 100%;
+      align-items: center;
+    }
 
-    padding:8px 18px;
+    .hero-buttons {
+      justify-content: center;
+    }
 
-    border-radius: 20px;
+    .hero-stats {
+      justify-content: center;
+      width: 100%;
+    }
 
-    margin-bottom:20px;
-}
-
-.hero h1{
-   font-size:58px;
-   margin-bottom:20px;
-}
-
-.hero h1 span {
-    color: #2563eb;
-}
-
-.hero p{
-    font-size:18px;
-    color:#555;
-    line-height:1.7;
-    margin-bottom:30px;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:20px;
-}
-
-.shop-btn,
-.explore-btn{
-    padding: 14px 30px;
-    border-radius: 8px;
-    border: none;
-    cursor:pointer;
-    font-size: 16px;
-}
-
-.shop-btn{
-    background: #2563eb;
-}
-
-.explore-btn {
-    background: white;
-    border: 2px solid #2563eb;
-    color:#2563eb;
-}
-
-.hero-stats{
-    display:flex;
-    gap:40px;
-    margin-top: 50px;
-}
-
-.hero-image{
-    width: 45%;
-}
-
-.hero-image img {
-    width:100%;
-    border-radius: 20px;
+    .hero-image {
+      max-width: 80%;
+    }
+  }
 }

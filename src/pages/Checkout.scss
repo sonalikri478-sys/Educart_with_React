@@ -1,0 +1,173 @@
+.checkout-page {
+  padding: 40px 20px;
+  min-height: 80vh;
+
+  .checkout-title {
+    margin-bottom: 30px;
+    color: #1a73e8;
+    font-size: 2rem;
+  }
+
+  .checkout-layout {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  /* Left Side: Shipping Form Styles */
+  .shipping-form-section {
+    flex: 1;
+    min-width: 320px;
+
+    h3 {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #dadce0;
+      padding-bottom: 10px;
+      color: #3c4043;
+    }
+
+    .checkout-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        label {
+          font-weight: 600;
+          font-size: 0.9rem;
+          color: #202124;
+        }
+
+        input {
+          width: 100%;
+          padding: 11px;
+          border-radius: 4px;
+          border: 1px solid #dadce0;
+          font-size: 0.95rem;
+          transition: border-color 0.2s;
+
+          &:focus {
+            outline: none;
+            border-color: #1a73e8;
+          }
+        }
+      }
+
+      .form-row {
+        display: flex;
+        gap: 15px;
+
+        .form-group {
+          flex: 1;
+        }
+      }
+
+      .place-order-btn {
+        margin-top: 15px;
+        padding: 14px;
+        background: #f0c14b;
+        border: 1px solid #a88734;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1rem;
+        color: #111;
+        transition: background 0.2s;
+
+        &:hover {
+          background: #ddb347;
+        }
+      }
+    }
+  }
+
+  /* Right Side: Order Sticky Summary Panel Styles */
+  .order-summary-section {
+    width: 380px;
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #dadce0;
+    position: sticky;
+    top: 20px;
+
+    h3 {
+      margin-bottom: 20px;
+      color: #3c4043;
+    }
+
+    .summary-items-list {
+      max-height: 220px;
+      overflow-y: auto;
+      margin-bottom: 20px;
+      padding-right: 5px;
+
+      .summary-item-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        font-size: 0.95rem;
+        color: #4e5256;
+
+        .item-name {
+          max-width: 75%;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+
+          .item-qty {
+            color: #1a73e8;
+            margin-left: 4px;
+          }
+        }
+      }
+
+      .empty-summary-text {
+        color: #70757a;
+        font-style: italic;
+      }
+    }
+
+    .price-breakdown {
+      border-top: 1px solid #dadce0;
+      padding-top: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.95rem;
+
+      .breakdown-row {
+        display: flex;
+        justify-content: space-between;
+        color: #5f6368;
+
+        .free-shipping {
+          color: #13854e;
+        }
+      }
+
+      .grand-total-row {
+        border-top: 1px solid #dadce0;
+        padding-top: 15px;
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #b12704;
+      }
+    }
+  }
+}
+
+/* Make it adapt cleanly on small mobile viewport grids */
+@media (max-width: 768px) {
+  .checkout-page {
+    .order-summary-section {
+      width: 100%;
+      position: static;
+    }
+  }
+}

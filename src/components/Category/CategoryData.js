@@ -1,62 +1,40 @@
-import {
-  FaBook,
-  FaPencilAlt,
-  FaClipboard,
-  FaLaptop,
-  FaPuzzlePiece,
-  FaSchool,
-  FaCalculator,
-  FaChalkboard,
-} from "react-icons/fa";
-
+import bookImg from "../../assets/images/books.jpg";
+import stationeryImg from "../../assets/images/stationery.jpg";
+import toyImg from "../../assets/images/toys.jpg";
+import electronicImg from "../../assets/images/electronic.jpg";
 const categories = [
   {
     id: 1,
     title: "Books",
-    icon: <FaBook />,
-    items: "1500+ Products",
+    slug: "books",
+    image: bookImg,
+    description: "School, College & Competitive Books",
+    totalProducts: 320,
   },
   {
     id: 2,
-    title: "Stationery",
-    icon: <FaPencilAlt />,
-    items: "800+ Products",
+    title: "Stationary",
+    slug: "stationary",
+    image: stationeryImg,
+    description: "Pens, Notebooks, Geometry Box",
+    totalProducts: 180,
   },
   {
     id: 3,
-    title: "Handwritten Notes",
-    icon: <FaClipboard />,
-    items: "500+ Products",
+    title: "Educational Toys",
+    slug: "educational-toys",
+    image: toyImg,
+    description: "Learning Toys for Kids",
+    totalProducts: 90,
   },
+
   {
     id: 4,
-    title: "Study Essentials",
-    icon: <FaLaptop />,
-    items: "300+ Products",
-  },
-  {
-    id: 5,
-    title: "Educational Toys",
-    icon: <FaPuzzlePiece />,
-    items: "250+ Products",
-  },
-  {
-    id: 6,
-    title: "School Supplies",
-    icon: <FaSchool />,
-    items: "700+ Products",
-  },
-  {
-    id: 7,
-    title: "Calculators",
-    icon: <FaCalculator />,
-    items: "100+ Products",
-  },
-  {
-    id: 8,
-    title: "Boards",
-    icon: <FaChalkboard />,
-    items: "150+ Products",
+    title: "Electronics",
+    slug: "electronics",
+    image: electronicImg,
+    description: "Phone , Tablet , Powerbank",
+    totalProducts: 40,
   },
 ];
 

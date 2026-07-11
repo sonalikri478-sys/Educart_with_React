@@ -1,30 +1,117 @@
-.search-container {
-  display: flex;
+$border-color: #dadce0;
+$text-main: #202124;
+$text-muted: #70757a;
+$primary-blue: #2563eb;
+
+.search-container-wrapper {
+  position: relative; // Absolute baseline setup for dropdown targeting anchor
   width: 100%;
-  max-width: 650px;
-  margin: auto;
+  max-width: 550px;   // Adapts beautifully with your header structure widths
 }
 
-.search-container input {
-  flex: 1;
-  padding: 14px;
-  border: 2px solid #2563eb;
-  border-right: none;
-  outline: none;
-  border-radius: 8px 0 0 8px;
-  font-size: 16px;
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+
+  input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    color: $text-main;
+
+    &::placeholder {
+      color: #9aa0a6;
+    }
+  }
+
+  .search-btn {
+    background: $primary-blue;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #1d4ed8;
+    }
+  }
 }
 
-.search-container button {
-  width: 60px;
-  border: none;
-  background: #2563eb;
-  color: white;
-  border-radius: 0 8px 8px 0;
-  cursor: pointer;
-  transition: .3s;
-}
+// PREMIUM FLOATING SUGGESTIONS DROPDOWN OVERLAY
+.search-suggestions-dropdown {
+  position: absolute;
+  top: calc(100% + 4px); // Drops it flush right below the input line border
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+  z-index: 9999; // Guarantees it floats over banner carousels and images
+  max-height: 380px;
+  overflow-y: auto;
 
-.search-container button:hover {
-  background: #1d4ed8;
+  li {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    cursor: pointer;
+    gap: 14px;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #f1f5f9; // Highlights item row on hover elegantly
+    }
+
+    .suggest-thumb {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      background: #f8fafc;
+      border-radius: 6px;
+      border: 1px solid #f1f5f9;
+    }
+
+    .suggest-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+
+      .suggest-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: $text-main;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // Cuts clean titles off smoothly if too long
+      }
+
+      .suggest-meta {
+        font-size: 0.75rem;
+        color: $text-muted;
+        margin-top: 2px;
+      }
+    }
+
+    .suggest-price {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: $primary-blue;
+    }
+  }
 }

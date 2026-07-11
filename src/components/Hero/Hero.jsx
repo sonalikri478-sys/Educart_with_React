@@ -1,7 +1,12 @@
 import React from "react";
 import "./Hero.scss";
+import { useNavigate  } from "react-router-dom";
 
 function Hero(){
+
+    const navigate =useNavigate();
+   
+
     return (
         <section className="hero">
 
@@ -15,7 +20,7 @@ function Hero(){
 
                 <h1>
                     Learn Without
-                    <span>Limits</span>
+                    <span> Limits</span>
                 </h1>
 
                 <p>
@@ -23,12 +28,14 @@ function Hero(){
                </p>
 
                <div className="hero-buttons">
-                <button className="shop-btn">
+                <button className="shop-btn" onClick={()=> navigate ("/products")}>
                     Shop Now
                 </button>
 
-                <button className="explore-btn">
-                    ExploreCategories
+                <button className="explore-btn"
+                   onClick={()=>navigate("/categories")}
+                >
+                    Explore Categories
                 </button>
 
 
@@ -56,7 +63,7 @@ function Hero(){
             </div>
 
             <div className="hero-image">
-                <img src="https://image.unsplash.com/photo-1524995997946-a1c2e315a42f" alt="Books" />
+                <img src="https://www.adbanao.com/img/industryimages_new/Stationery_shop/Stationery_shop_01.webp" alt="Books" />
 
             </div>
 
