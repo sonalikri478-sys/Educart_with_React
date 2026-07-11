@@ -13,21 +13,14 @@ import {
   FaTruck,
 } from "react-icons/fa";
 
-
-
 function Navbar() {
   const navigate=useNavigate();
   
-  const handleGlobalSearch = (query) => {
-    navigate("/products", {state:{searchQuery: query}});
-  };
-
+ 
 
   const {cartItems}=useCart();
   const {wishlistItems}=useWishlist();
-  
-  
-  
+    
   return (
     <>
       <div className="top-bar">
