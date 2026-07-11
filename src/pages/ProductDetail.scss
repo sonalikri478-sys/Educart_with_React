@@ -87,6 +87,24 @@ $border-color: #e2e8f0;
 
         &:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 6px 20px rgba($primary-blue, 0.35); }
       }
+
+
+      .add-to-wishlist-action-btn{
+        align-self: flex-start;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: #f1f5f9;
+        color: rgb(153, 58, 58);
+        padding: 16px 36px;
+        font-size: 1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        box-shadow: 0 4px 14px rgba($primary-blue, 0.25);
+        transition: all 0.2s;
+      }
     }
   }
 

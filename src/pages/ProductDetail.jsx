@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { FaStar, FaShoppingCart, FaChevronRight, FaRegStar } from 'react-icons/fa';
+import{useCart} from "./CartContext";
+import { FaStar,FaHeart, FaShoppingCart, FaChevronRight, FaRegStar } from 'react-icons/fa';
 import ProductData from '../components/FeaturedProducts/ProductData'; // Your central data array
 import './ProductDetail.scss';
 
@@ -8,6 +9,9 @@ function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   
+
+   const{ addToCart , addToWishlist }=useCart();
+
   // Find the exact product being viewed
   const product = ProductData.find(item => item.id === Number(id));
 
@@ -84,8 +88,12 @@ function ProductDetail() {
             This premium {product.name.toLowerCase()} is handpicked specifically for India's educational landscape. Built using high-quality, durable components designed to maximize student focus and organize daily workflow efficiently.
           </p>
 
-          <button className="add-to-cart-action-btn">
-            <FaShoppingCart /> Add to Shopping Cart
+          <button className="add-to-cart-action-btn" onClick={() => addToCart(product)}>
+            <FaShoppingCart /> Add to Cart
+          </button>
+
+          <button className="add-to-wishlist-action-btn" onClick={()=> addToWishlist(product)} style={{background:"#f1f5f9" , color:"#64748b" , border:"none",padding:"16px", borderRadius :"12px" , cursor:"pointer"}}>
+            <FaHeart style={{color:"#ef4444"}}/>
           </button>
         </div>
       </div>

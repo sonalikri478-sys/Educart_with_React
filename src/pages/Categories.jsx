@@ -1,8 +1,10 @@
-import { useParams } from "react-router-dom";
+
 import React from 'react';
 import CategoryCard from '../components/CategoryCard/CategoryCard';
 // FIX: Import 'categories' directly without curly braces because it's a default export
 import categories from '../components/Category/CategoryData'; 
+import ProductCard from "../components/ProductCard";
+import products from "../components/FeaturedProducts/ProductData";
 
 function CategoryPage() {
 
@@ -27,6 +29,11 @@ function CategoryPage() {
           gap: '20px' 
         }}
       >
+
+        {products.map(product => <ProductCard key ={product.id} product={product} />)}
+       
+
+
         {/* Map through the imported categories data array */}
         {categories && categories.map((cat) => (
           <CategoryCard key={cat.id} category={cat} />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { useCart } from './CartContext'; // Hooks directly into your cart engine
 import { FaTag, FaClock, FaCopy, FaCheck, FaShoppingCart } from 'react-icons/fa';
 import ProductData from "../components/FeaturedProducts/ProductData";

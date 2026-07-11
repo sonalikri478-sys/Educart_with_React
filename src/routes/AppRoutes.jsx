@@ -3,7 +3,7 @@ import MainLayout from "../layouts/MainLayout";
 import AuthLayout from "../layouts/AuthLayout";
 import Register from "../pages/Register";
 import Products from "../pages/Products";
-import useCart from "../pages/CartContext";
+
 import Profile from "../pages/Profile";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
